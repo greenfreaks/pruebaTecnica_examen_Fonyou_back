@@ -3,6 +3,10 @@ package com.fonyou.pruebaTecnica_examen_fonYou_back.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
+import java.time.LocalDate;
+
 @NoArgsConstructor
 @Getter
 @Setter
@@ -22,6 +26,7 @@ public class Examen {
 
     @Column(name = "fecha_aplicacion")
     private String fecha_aplicacion;
+    //private LocalDate fecha_aplicacion
 
     @Column(name = "hora_aplicacion")
     private String hora_aplicacion;
@@ -30,6 +35,12 @@ public class Examen {
     @ManyToOne
     @JoinColumn(name = "profesor_id")
     Profesor profesor_id;
+
+    @OneToMany(mappedBy = "examen_id")
+    List<Pregunta> preguntaList;
+
+    @OneToMany(mappedBy = "examen_id")
+    List<ExamenAlumno> examenAlumnoList;
 
 
     //Constructor SIN ID

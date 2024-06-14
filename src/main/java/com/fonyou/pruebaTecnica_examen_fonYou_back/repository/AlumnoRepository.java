@@ -1,4 +1,4 @@
 package com.fonyou.pruebaTecnica_examen_fonYou_back.repository;
 
-public class AlumnoRepository {
+public interface AlumnoRepository {
 }

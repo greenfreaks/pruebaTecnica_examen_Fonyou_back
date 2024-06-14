@@ -14,15 +14,15 @@ import static java.util.List.of;
 @RestController
 @RequestMapping(path = "api/v1/profesor")
 public class ProfesorController {
-    private final ProfesorService profesorService;
+    /*private final ProfesorService profesorService;
 
     @Autowired
     public ProfesorController(ProfesorService profesorService) {
         this.profesorService = new ProfesorService();
-    }
+    }*/
     /*Con esta función mandamos a llamar la lista de todos los profesores creados en ProfesorService*/
-    @GetMapping
+   /* @GetMapping
     public List<Profesor> getProfesores(){
         return profesorService.getProfesores();
-    }
+    } */
 }
