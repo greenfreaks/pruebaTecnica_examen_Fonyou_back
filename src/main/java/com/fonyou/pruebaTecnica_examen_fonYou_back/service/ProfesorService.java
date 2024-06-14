@@ -1,6 +1,8 @@
 package com.fonyou.pruebaTecnica_examen_fonYou_back.service;
 
 import com.fonyou.pruebaTecnica_examen_fonYou_back.model.Profesor;
+import com.fonyou.pruebaTecnica_examen_fonYou_back.repository.ProfesorRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +15,18 @@ import java.util.List;
 */
 @Service
 public class ProfesorService {
+
+    private final ProfesorRepository profesorRepository;
+
+    @Autowired
+    public ProfesorService(ProfesorRepository profesorRepository) {
+        this.profesorRepository = profesorRepository;
+    }
+
     public List<Profesor> getProfesores(){
-        return List.of(
+        return profesorRepository.findAll();
+        /*return List.of(
                 new Profesor(1L, "Mario Sandoval Velázquez", "Mario123!")
-        );
+        );*/
     }
 }

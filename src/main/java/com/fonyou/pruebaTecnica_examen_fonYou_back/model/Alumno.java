@@ -3,6 +3,8 @@ package com.fonyou.pruebaTecnica_examen_fonYou_back.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @NoArgsConstructor
 @Getter
 @Setter
@@ -31,6 +33,12 @@ public class Alumno {
 
     @Column(name = "contrasena_alumno")
     private String contrasena_alumno;
+
+    @OneToMany(mappedBy = "alumno_id")
+    List<RespuestaAlumno> respuestasAlumnosList;
+
+    @OneToMany(mappedBy = "alumno_id")
+    List<ExamenAlumno> examenAlumnoList;
 
     //Constructor SIN ID
     public Alumno(String nombre_alumno, int edad_alumno, String ciudad_alumno, String zonahoraria_alumno, String contrasena_alumno) {
